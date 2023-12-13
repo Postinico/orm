@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ConsoleApp.Persistences
 {
-    internal class AppDbContex : DbContext
+    public class AppDbContex : DbContext
     {
         //mapeando entidades para tabelas
 
@@ -12,8 +12,16 @@ namespace ConsoleApp.Persistences
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseInMemoryDatabase("dbCurso");
-        }
 
+
+            //Exibir log do sql
+            optionsBuilder.EnableSensitiveDataLogging();
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // popular tabela itilizando add-migration
+            modelBuilder.Entity<Produto>().HasData(new Produto { ProdutoId = 6, Nome = "papel A4", Preco = 2.99M, Saldo = 10 });
+        }
 
     }
 }
