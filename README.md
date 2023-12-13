@@ -40,12 +40,12 @@ get-help EntityFrameworkCore
 - Gerencia a transação de persistência
 
 * Principais métodos da classe 
-    Add - Adiciona uma nova entidade ao contexto
-    AddRange - Adiciona nova coleção de entidades
-    Attch - Anexa uma nova entidade no contexto
-    Entry - 
-    Find - Encontra a entidade do contexto
-    Remove - Remove a entidade do contexto
-    SaveChanges - Persiste as informações no DB
-    Set Cria um DbSet<t>
-    Update - Anexa uma entidade desconectada com estado Modifed
+   - Add - Adiciona uma nova entidade ao contexto
+   - AddRange - Adiciona nova coleção de entidades
+   - Attch - Anexa uma nova entidade no contexto
+   - Entry - 
+   - Find - Encontra a entidade do contexto
+   - Remove - Remove a entidade do contexto
+   - SaveChanges - Persiste as informações no DB
+   - Set Cria um DbSet<t>
+   - Update - Anexa uma entidade desconectada com estado Modifed
