@@ -49,3 +49,17 @@ get-help EntityFrameworkCore
    - SaveChanges - Persiste as informações no DB
    - Set Cria um DbSet<t>
    - Update - Anexa uma entidade desconectada com estado Modifed
+
+
+   # Fluent API
+   é um conjunto de métodos que podemos usar em nosso contexto para realizar configurações nas tabelas do banco de dados.
+
+    Possui recursos para:
+    - Fazer a configurações do Model
+    - Fazer a configurações das Entidades
+    - Fazer a configurações de Propriedades
+
+    O termo Fluent API refere-se a um padrão de programação no qual as chamadas de método são encaradas em conjunto, resultando em um código mais suscinto e legível.
+    Exemplo
+
+    mb.Entity<Produto>().Property(p=>p.DataPedido).IsRequired();

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppMuitosParaMuitos"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppUmParaMuitos", "src\ConsoleAppUmParaMuitos\ConsoleAppUmParaMuitos.csproj", "{E6C2D74F-7640-4AE2-AA7D-249F6AB8EB14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppEfCore_FluentAPI", "src\ConsoleAppEfCore_FluentAPI\ConsoleAppEfCore_FluentAPI.csproj", "{6039A193-8C13-4F2F-82BD-03D28E7BC396}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{E6C2D74F-7640-4AE2-AA7D-249F6AB8EB14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6C2D74F-7640-4AE2-AA7D-249F6AB8EB14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6C2D74F-7640-4AE2-AA7D-249F6AB8EB14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6039A193-8C13-4F2F-82BD-03D28E7BC396}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6039A193-8C13-4F2F-82BD-03D28E7BC396}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6039A193-8C13-4F2F-82BD-03D28E7BC396}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6039A193-8C13-4F2F-82BD-03D28E7BC396}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +43,7 @@ Global
 		{91383D1F-253D-4A97-A217-2237338FFC26} = {11B61272-52A8-4280-8557-C8F2FFE3D119}
 		{D9C57E27-6793-4149-8EB2-FDFC2D8965E0} = {11B61272-52A8-4280-8557-C8F2FFE3D119}
 		{E6C2D74F-7640-4AE2-AA7D-249F6AB8EB14} = {11B61272-52A8-4280-8557-C8F2FFE3D119}
+		{6039A193-8C13-4F2F-82BD-03D28E7BC396} = {11B61272-52A8-4280-8557-C8F2FFE3D119}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1B0715DC-68C3-400D-B32C-9FB1FFC9A013}
