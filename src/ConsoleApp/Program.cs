@@ -12,21 +12,7 @@ using (var db = new AppDbContex())
     //Relacionamento
     Console.WriteLine("Incluir Autor");
 
-    await IncluirAutor(db);
 
-    await IncluirAutorLivro(db);
-
-    await IncluirAutorLivroAddRange(db);
-
-    await IncluirLivroAutor(db);
-
-    await IncluirLivroAutorId(db, 1);
-
-    await ExibirAutores(db);
-
-    await ExibirAutoresLivros(db);
-
-    await ExibirLivrosAutores(db, "Carol");
 
 
     //Crud
@@ -82,125 +68,6 @@ using (var db = new AppDbContex())
 
     Console.ReadKey();
 }
-
-async Task IncluirAutorLivro(AppDbContex db)
-{
-    var autor = new Autor
-    {
-        Nome = "Guilherme",
-        Sobrenome = "Postinico",
-        Livros = new List<Livro>
-        {
-            new Livro{Titulo = "ASP, ADO e banco de dados na web", AnoLancamento =2000},
-            new Livro{Titulo = "ASP", AnoLancamento =2000}
-        }
-    };
-
-    await db.Autores.AddAsync(autor);
-
-    await ExibirEstado(db.ChangeTracker.Entries());
-    await db.SaveChangesAsync();
-}
-
-async Task IncluirAutorLivroAddRange(AppDbContex db)
-{
-    var autor = new Autor
-    {
-        Nome = "Carol",
-        Sobrenome = "Postinico"
-    };
-
-    var livros = new List<Livro>
-        {
-            new Livro{Titulo = "ASP, ADO e banco de dados na web", AnoLancamento =2000, Autor = autor},
-            new Livro{Titulo = "ASP", AnoLancamento =2000, Autor = autor},
-            new Livro{Titulo = "Marketing", AnoLancamento =2000, Autor = autor}
-        };
-
-    await db.AddRangeAsync(livros);
-
-    await ExibirEstado(db.ChangeTracker.Entries());
-    await db.SaveChangesAsync();
-}
-
-async Task IncluirLivroAutor(AppDbContex db)
-{
-    var autor = db.Autores.Find(1);
-
-    var livro = new Livro
-    {
-        Titulo = "ASP, ADO e banco de dados na web",
-        AnoLancamento = 2000,
-        Autor = autor
-    };
-
-    await db.AddRangeAsync(livro);
-
-    await ExibirEstado(db.ChangeTracker.Entries());
-    await db.SaveChangesAsync();
-}
-
-async Task IncluirLivroAutorId(AppDbContex db, int autorId)
-{
-    var autor = db.Autores.Find(1);
-
-    var livro = new Livro
-    {
-        Titulo = "ASP - 2, ADO e banco de dados na web",
-        AnoLancamento = 2000,
-        AutorId = autorId
-    };
-
-    await db.AddRangeAsync(livro);
-
-    await ExibirEstado(db.ChangeTracker.Entries());
-    await db.SaveChangesAsync();
-}
-
-async Task IncluirAutor(AppDbContex db)
-{
-    var autor = new Autor { Nome = "Guilherme - 1", Sobrenome = "Postinico" };
-
-    await db.Autores.AddAsync(autor);
-
-    await ExibirEstado(db.ChangeTracker.Entries());
-    await db.SaveChangesAsync();
-}
-
-async Task ExibirAutores(AppDbContex db)
-{
-    foreach (var autor in db.Autores)
-    {
-        Console.WriteLine($"Nome: {autor.Nome}, Sobrenome:{autor.Sobrenome}");
-    }
-
-    await Task.CompletedTask;
-}
-
-async Task ExibirAutoresLivros(AppDbContex db)
-{
-    foreach (var autor in db.Autores.AsNoTracking().Include("Livros"))
-    {
-        Console.WriteLine($"Nome: {autor.Nome}, Sobrenome:{autor.Sobrenome}");
-
-        foreach (var livro in autor.Livros)
-        {
-            Console.WriteLine($"\t Titulo: {livro.Titulo}");
-        }
-    }
-
-    await Task.CompletedTask;
-}
-
-async Task ExibirLivrosAutores(AppDbContex db, string nome)
-{
-    var resultado = await db.Autores.Where(a => a.Nome == nome)
-         .Select(a => new { Autor = a, LivrosAutor = a.Livros })
-         .FirstOrDefaultAsync();
-
-    await Task.CompletedTask;
-}
-
 
 
 static async Task ListarProdutos(AppDbContex db)

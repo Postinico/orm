@@ -1,13 +1,15 @@
-﻿using ConsoleApp.Models;
+﻿using ConsoleAppMuitosParaMuitos.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ConsoleApp.Persistences
+namespace ConsoleAppMuitosParaMuitos.Persistences
 {
     public class AppDbContex : DbContext
     {
         //mapeando entidades para tabelas
 
-        public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Aluno> Alunos { get; set; }
+        public DbSet<Curso> Cursos { get; set; }
+        public DbSet<AlunoCurso> AlunoCursos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -19,8 +21,9 @@ namespace ConsoleApp.Persistences
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // popular tabela itilizando add-migration
-            modelBuilder.Entity<Produto>().HasData(new Produto { ProdutoId = 6, Nome = "papel A4", Preco = 2.99M, Saldo = 10 });
+            //Difinindo chave estrangeira
+            modelBuilder.Entity<AlunoCurso>()
+                .HasKey(ac => new { ac.AlunoId, ac.CursoId });
         }
     }
 }

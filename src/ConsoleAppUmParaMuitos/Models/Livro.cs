@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp.Models
+﻿namespace ConsoleAppUmParaMuitos.Models
 {
     public class Livro
     {
